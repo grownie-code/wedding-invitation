@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mematikan outline */
+@layer base {
+    /* Mematikan outline untuk semua elemen saat di-klik (mouse user) */
+    :focus:not(:focus-visible) {
+        outline: none;
+        box-shadow: none;
+    }
+
+    /* Mematikan ring secara agresif pada button */
+    button:focus, 
+    button:active, 
+    button:focus-visible {
+        outline: none !important;
+        box-shadow: none !important;
+        -webkit-tap-highlight-color: transparent; /* Mematikan highlight biru di Android/iOS */
+    }
+}
+
+/* Scroll Margin Navbar */
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 2px; 
+}
+
+/* Custom Scrollbar */
+@layer base {
+    /* Berlaku untuk seluruh halaman */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* 1. Area utama scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px; /* Dibuat tipis agar elegan */
+    }
+
+    /* 2. Jalur (Track) scrollbar */
+    ::-webkit-scrollbar-track {
+        background: #f8f7f5; /* Warna stone-50 sesuai tema background kamu */
+    }
+
+    /* 3. Batang (Thumb) scrollbar */
+    ::-webkit-scrollbar-thumb {
+        /* Gradasi Emas Champagne */
+        background: linear-gradient(180deg, #e5d5b7 0%, #c5a059 50%, #e5d5b7 100%);
+
+        /* Trik agar batang terlihat ramping dan melayang (floating) */
+        border: 2px solid #f8f7f5; 
+        border-radius: 100px;
+        background-clip: padding-box;
+    }
+
+    /* 4. Efek Hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #b38f4d; /* Emas sedikit lebih tegas saat disentuh */
+    }
+
+    /* Support Firefox */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: #c5a059 #f8f7f5;
+    }
+}
